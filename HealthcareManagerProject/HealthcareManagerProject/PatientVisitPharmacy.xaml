@@ -1,0 +1,69 @@
+﻿<Page x:Class="HealthcareManagerProject.PatientVisitPharmacy"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HealthcareManagerProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PatientVisitPharmacy">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.ColumnSpan="3" Grid.Row="0" x:Name="txtHeading"
+                   FontSize="40" Foreground="Black" FontWeight="Bold"
+                   VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <TextBlock Text="Medications for Sale" 
+                   Grid.ColumnSpan="2" Grid.Row="1" 
+                   FontWeight="Bold" FontSize="25" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <TextBlock Text="Pharmacists" 
+                   Grid.Column="2" Grid.Row="1" 
+                   FontWeight="Bold" FontSize="25" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <DataGrid Name="dataGrid1" AutoGenerateColumns="False"
+            Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Drug" FontSize="20" Width="*" Binding="{Binding Drug, Mode=OneWay}"/>
+                <DataGridTextColumn Header="Unit Price" FontSize="20" Width="*" Binding="{Binding UnitPrice, Mode=OneWay}"/>
+                <DataGridCheckBoxColumn Header="Requires Prescription" Width="*" Binding="{Binding RequiresPrescription, Mode=OneWay}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <ComboBox Grid.Row="2" Grid.Column="2" Name="comboBox1"
+                  VerticalContentAlignment="Center" VerticalAlignment="Top"
+                  HorizontalAlignment="Center" FontSize="20"  HorizontalContentAlignment="Center"
+                  Height="30" Width="250"/>
+        
+        <Button x:Name="btnPurchase" Content="Purchase" 
+                Grid.Column="0" Grid.Row="3" FontSize="20"
+                Foreground="Black" FontWeight="Bold" Width="250" Height="50" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnPurchase_Click" />
+
+        <Button x:Name="btnDrugInfo" Content="Drug Info" 
+                Grid.Column="1" Grid.Row="3" FontSize="20"
+                Foreground="Black" FontWeight="Bold" Width="250" Height="50" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnDrugInfo_Click" />
+
+        <Button x:Name="btnExitPharmacy" Content="Exit Pharmacy" 
+                Grid.Column="2" Grid.Row="3" FontSize="20"
+                Foreground="Green" FontWeight="Bold" Width="250" Height="50" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnExitPharmacy_Click" />
+
+    </Grid>
+</Page>
